@@ -1,14 +1,15 @@
 <template>
-  <div class="home">
+  <div class="login">
     <Empty />
   </div>
 </template>
-
 <script>
 import Empty from '@/components/Empty'
-
 export default {
-  name: 'Home',
+  name: 'Login',
   components: { Empty },
+  data() {
+    return {}
+  },
 }
 </script>
