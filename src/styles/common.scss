@@ -12,36 +12,32 @@ body {
 .flex {
   display: flex;
 }
-
 .space-between {
   justify-content: space-between;
 }
-
 .flex-center {
   justify-content: center;
 }
-
 .flex-v-center {
   align-items: center;
 }
-
 .nowrap {
   flex-wrap: nowrap;
 }
-
 .flex-column {
   flex-direction: column;
 }
 
 /** 文字处理 **/
+.text-left {
+  text-align: left;
+}
 .text-right {
   text-align: right;
 }
-
 .text-center {
   text-align: center;
 }
-
 .text-justify {
   text-align: justify;
 }
@@ -49,27 +45,19 @@ body {
 .color-base {
   color: $color-base;
 }
-
 .color-gray {
   color: $color-grey;
 }
-
-.blod {
-  font-weight: bold;
-}
-
 .font-nowrap {
   white-space: nowrap;
 }
 
-.inline {
+.inline-block {
   display: inline-block;
 }
-
 .relative {
   position: relative;
 }
-
 .absolute {
   position: absolute;
 }
@@ -77,14 +65,10 @@ body {
 .w-full {
   width: 100%;
 }
-
 .h-full {
   height: 100%;
 }
 
-.bg-white {
-  background-color: #fff;
-}
 .modal-over {
   position: fixed;
   top: 0;
@@ -103,68 +87,76 @@ body {
   background-position: center center;
 }
 
-$sizeList: 0, 2, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 35, 38, 40, 42, 44, 48, 50, 54, 58, 60, 78,
-  80, 100, 120;
-
-@each $size in $sizeList {
-  .w-#{$size} {
-    width: #{$size}px;
+// for 循环
+@for $i from 1 through 100 {
+  .w-#{2 * $i} {
+    width: $i * 2px;
+  }
+  .h-#{2 * $i} {
+    height: $i * 2px;
+  }
+  .l-h-#{2 * $i} {
+    line-height: $i * 2px;
   }
 
-  .h-#{$size} {
-    height: #{$size}px;
+  .m-#{2 * $i} {
+    margin: $i * 2px;
+  }
+  .m-t-#{2 * $i} {
+    margin-top: $i * 2px;
+  }
+  .m-l-#{2 * $i} {
+    margin-left: $i * 2px;
+  }
+  .m-b-#{2 * $i} {
+    margin-bottom: $i * 2px;
+  }
+  .m-r-#{2 * $i} {
+    margin-right: $i * 2px;
   }
 
-  .m-#{$size} {
-    margin: #{$size}px;
+  .p-#{2 * $i} {
+    padding: $i * 2px;
+  }
+  .p-t-#{2 * $i} {
+    padding-top: $i * 2px;
+  }
+  .p-l-#{2 * $i} {
+    padding-left: $i * 2px;
+  }
+  .p-b-#{2 * $i} {
+    padding-bottom: $i * 2px;
+  }
+  .p-r-#{2 * $i} {
+    padding-right: $i * 2px;
   }
 
-  .m-t-#{$size} {
-    margin-top: #{$size}px;
-  }
-
-  .m-l-#{$size} {
-    margin-left: #{$size}px;
-  }
-
-  .m-b-#{$size} {
-    margin-bottom: #{$size}px;
-  }
-
-  .m-r-#{$size} {
-    margin-right: #{$size}px;
-  }
-
-  .p-#{$size} {
-    padding: #{$size}px;
-  }
-
-  .p-t-#{$size} {
-    padding-top: #{$size}px;
-  }
-
-  .p-l-#{$size} {
-    padding-left: #{$size}px;
-  }
-
-  .p-b-#{$size} {
-    padding-bottom: #{$size}px;
-  }
-
-  .p-r-#{$size} {
-    padding-right: #{$size}px;
+  .font-#{2 * $i} {
+    font-size: $i * 2px;
   }
 }
 
-/** 文字处理 **/
-$fontList: 12, 14, 16, 18, 20, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 48, 50, 54, 58, 60, 100;
+// list 的遍历
+$colorList: red, orange, yellow, green, aqua, blue, purple, indigo, violet, white;
 
-@each $fontSize in $fontList {
-  .text-#{$fontSize} {
-    font-size: #{$fontSize}px;
+@each $color in $colorList {
+  .color-#{$color} {
+    color: $color;
   }
+  .bg-#{$color} {
+    background-color: $color;
+  }
+}
 
-  .l-h-#{$fontSize} {
-    line-height: #{$fontSize}px;
+// map 的遍历
+$fontWeights: (
+  'nomal': 400,
+  'medium': 500,
+  'bold': 700,
+);
+
+@each $key, $value in $fontWeights {
+  .font-weight-#{$key} {
+    font-weight: $value;
   }
 }

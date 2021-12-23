@@ -1,7 +1,6 @@
 <template>
   <div id="nav">
-    <router-link to="/home">Home</router-link> |
-    <router-link to="/login">Login</router-link>
+    <h1 class="l-h-80 font-blue font-weight-bold">App Component</h1>
     <router-view />
   </div>
 </template>
@@ -16,8 +15,6 @@
 }
 
 #nav {
-  padding: 30px;
-
   a {
     font-weight: bold;
     color: #2c3e50;
